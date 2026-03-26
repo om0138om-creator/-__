@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a2e">
+
+    <!-- الساعة الرئيسية -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/currentTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00 ص"
+            android:textSize="48sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/currentDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الأحد، 1 يناير 2024"
+            android:textSize="16sp"
+            android:textColor="#888888"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <!-- إضافة منبه -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#252542"
+        android:padding="20dp"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إضافة منبه جديد"
+            android:textColor="#00d9ff"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <NumberPicker
+                android:id="@+id/timePickerHour"
+                android:layout_width="60dp"
+                android:layout_height="120dp"
+                android:theme="@style/NumberPickerTheme"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="40sp"
+                android:textColor="#00d9ff"
+                android:layout_marginHorizontal="10dp"/>
+
+            <NumberPicker
+                android:id="@+id/timePickerMinute"
+                android:layout_width="60dp"
+                android:layout_height="120dp"
+                android:theme="@style/NumberPickerTheme"/>
+
+            <NumberPicker
+                android:id="@+id/timePickerPeriod"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:theme="@style/NumberPickerTheme"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/alarmLabel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#1a1a2e"
+            android:hint="اسم المنبه"
+            android:textColorHint="#555555"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/addAlarmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="➕ إضافة المنبه"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="#00d9ff"
+            android:textColor="#1a1a2e"/>
+    </LinearLayout>
+
+    <!-- قائمة المنبهات -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المنبهات النشطة"
+        android:textColor="#00d9ff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/alarmsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"/>
+
+</LinearLayout>
